@@ -6,6 +6,7 @@ import io.undertow.server.handlers.PathHandler;
 import io.undertow.servlet.Servlets;
 import io.undertow.servlet.api.DeploymentInfo;
 import io.undertow.servlet.api.DeploymentManager;
+import net.prasenjit.poc.gradle.app.frontent.LoggingFilter;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.ServletException;
@@ -13,7 +14,7 @@ import javax.servlet.ServletException;
 public class Main {
     public static void main(String[] args) throws ServletException {
         DeploymentInfo servletBuilder = Servlets.deployment()
-                .setClassLoader(MyServlet.class.getClassLoader())
+                .setClassLoader(ProxyServlet.class.getClassLoader())
                 .setContextPath("/")
                 .setDeploymentName("test.war")
                 .addFilter(Servlets.filter("LoggingFilter", LoggingFilter.class)
@@ -21,7 +22,7 @@ public class Main {
                         .addInitParam("dumpResponse", "true")
                 ).addFilterServletNameMapping("LoggingFilter", "MessageServlet", DispatcherType.REQUEST)
                 .addServlets(
-                        Servlets.servlet("MessageServlet", MyServlet.class)
+                        Servlets.servlet("MessageServlet", ProxyServlet.class)
                                 .addInitParam("backendUri", "http://localhost:8081")
                                 .addMapping("/*")
                 );

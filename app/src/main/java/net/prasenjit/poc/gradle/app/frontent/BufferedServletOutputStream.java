@@ -1,4 +1,4 @@
-package net.prasenjit.poc.gradle.app;
+package net.prasenjit.poc.gradle.app.frontent;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;
@@ -9,7 +9,7 @@ public class BufferedServletOutputStream extends ServletOutputStream {
 
     private final ByteArrayOutputStream baos;
 
-    BufferedServletOutputStream(ByteArrayOutputStream baos) {
+    public BufferedServletOutputStream(ByteArrayOutputStream baos) {
         this.baos = baos;
     }
 

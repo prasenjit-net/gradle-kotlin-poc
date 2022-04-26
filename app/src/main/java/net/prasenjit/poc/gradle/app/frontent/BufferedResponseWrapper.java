@@ -1,4 +1,4 @@
-package net.prasenjit.poc.gradle.app;
+package net.prasenjit.poc.gradle.app.frontent;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;

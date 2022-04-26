@@ -1,4 +1,4 @@
-package net.prasenjit.poc.gradle.app;
+package net.prasenjit.poc.gradle.app.frontent;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;

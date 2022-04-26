@@ -1,5 +1,7 @@
 package net.prasenjit.poc.gradle.app;
 
+import net.prasenjit.poc.gradle.app.backend.BackendRequestInterceptor;
+import net.prasenjit.poc.gradle.app.backend.BackendResponseInterceptor;
 import org.apache.commons.io.IOUtils;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
@@ -22,7 +24,7 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Locale;
 
-public class MyServlet extends HttpServlet {
+public class ProxyServlet extends HttpServlet {
     private static final String FILTERED_HEADERS = "host connection content-type content-length";
     private CloseableHttpClient client;
     private HttpHost backend;
